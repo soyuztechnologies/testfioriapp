@@ -1,0 +1,14 @@
+specVersion: '2.6'
+metadata:
+  name: fiorilikeapp
+type: application
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+      backend:
+      - path: /sap
+        url: http://103.207.171.202:8021
+        client: '800'
